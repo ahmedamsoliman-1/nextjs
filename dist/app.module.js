@@ -10,14 +10,23 @@ exports.AppModule = void 0;
 const common_1 = require("@nestjs/common");
 const app_controller_1 = require("./app.controller");
 const app_service_1 = require("./app.service");
+const nestjs_prometheus_1 = require("@willsoto/nestjs-prometheus");
+const core_1 = require("@nestjs/core");
+const logging_interceptor_1 = require("./logging.interceptor");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
 exports.AppModule = AppModule = __decorate([
     (0, common_1.Module)({
-        imports: [],
+        imports: [nestjs_prometheus_1.PrometheusModule.register()],
         controllers: [app_controller_1.AppController],
-        providers: [app_service_1.AppService],
+        providers: [
+            app_service_1.AppService,
+            {
+                provide: core_1.APP_INTERCEPTOR,
+                useClass: logging_interceptor_1.LoggingInterceptor,
+            },
+        ],
     })
 ], AppModule);
 //# sourceMappingURL=app.module.js.map
