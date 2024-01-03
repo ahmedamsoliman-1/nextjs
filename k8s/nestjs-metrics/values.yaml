@@ -1,13 +1,13 @@
 prometheus:
-  alertmanger: 
+  alertmanager:
     enabled: false
-  
-  pushgateay: 
+
+  pushgateway:
     enabled: false
-  
+
   nodeExporter:
     enabled: false
 
 grafana:
-  service: 
+  service:
     type: NodePort

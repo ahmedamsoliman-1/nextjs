@@ -19,7 +19,7 @@ spec:
         prometheus.io/port: "3000"
     spec:
       containers:
-      - image: ahmedalimsolimansd/nestjs-metrics
-        name: nestjs-metrics
-        ports:
-        - containerPort: 3000
+        - image: ahmedalimsolimansd/nestjs-metrics
+          name: nestjs-metrics
+          ports:
+          - containerPort: 3000
